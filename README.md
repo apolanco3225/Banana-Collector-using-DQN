@@ -18,8 +18,19 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ### Vanilla Deep Q Learning
 
+The main variation from the one in the paper is that is not used a convolutional neural network, instead that was changed for a feed forward neural network that provides the input vector of the state.
+
+Trained with the following parameters:
+* BUFFER_SIZE = int(1e5)  
+* BATCH_SIZE = 64         
+* GAMMA = 0.99            
+* TAU = 1e-3              
+* LR = 5e-4               
+* UPDATE_EVERY = 4  
+
 <img src='drl_performance.png' align='center'>
 
+The model returned an average score of 11.49 after 100 episodes, a very successful model, however it has room for improvement modifying parameters and using a convnet to extract features, and changing the architechture of the DQN
 
 
     
