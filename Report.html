@@ -11777,18 +11777,17 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Banana-Collector-using-Deep-Reinforcement-Learning">Banana Collector using Deep Reinforcement Learning<a class="anchor-link" href="#Banana-Collector-using-Deep-Reinforcement-Learning">&#182;</a></h1><p>For this project, it's trained an agent to navigate (and collect bananas!) in a large, square world.</p>
 <p><img src='https://s3.amazonaws.com/video.udacity-data.com/topher/2018/June/5b1ab4b0_banana/banana.gif' align='center'></p>
-<p>A reward of +1 is provided for collecting a yellow banana, and a reward of -1 is provided for collecting a blue banana. Thus, the goal of your agent is to collect as many yellow bananas as possible while avoiding blue bananas.</p>
-<p>The state space has 37 dimensions and contains the agent's velocity, along with ray-based perception of objects around the agent's forward direction. Given this information, the agent has to learn how to best select actions. Four discrete actions are available, corresponding to:</p>
-
-<pre><code>0 - move forward.
-1 - move backward.
-2 - turn left.
-3 - turn right.
-
-</code></pre>
-<p>The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.</p>
-<h3 id="Vanilla-Deep-Q-Learning">Vanilla Deep Q Learning<a class="anchor-link" href="#Vanilla-Deep-Q-Learning">&#182;</a></h3><p>The main variation from the one in the paper is that is not used a convolutional neural network, instead that was changed for a feed forward neural network that provides the input vector of the state.</p>
-<p>Trained with the following parameters:</p>
+<h3 id="Explanation-of-how-Deep-Q-Learning-works">Explanation of how Deep Q Learning works<a class="anchor-link" href="#Explanation-of-how-Deep-Q-Learning-works">&#182;</a></h3><p>Reinforcement Learning is the process of learning  by interacting in an environment through positive feedback, Q learning is a reinforcement learning technique that creates a policy of behaviour that maps actions and it's corresponding reward, for instance, in a chess game, in the case showed in the following image we can see that moving the pow two steps forward is the action that maximizes the probability of winning over all other actions.</p>
+<p><img src='https://cdn-images-1.medium.com/max/716/1*srmv0GScAs6vObPfPj0-uQ.png' align='center'></p>
+<p>The idea would be to create a Q-table that memorizes every possible configuration of the environment and the corresponding reward of all available actions, so, given any state in the environment, we can always choose an action that maximizes the reward given a state.</p>
+<p><img src='https://cdn-images-1.medium.com/max/716/1*5ffOxpSgIJCYn0XccfFYUQ.png' align='center'></p>
+<p>Depending on the problem we are working on this becomes unfisable, due to the consumption of memory and computational resources, like for instance, in the game of Go there are more configurations on the board than there are atoms in the universe, however this can not scale to  solve complex and interesting problems in real life.</p>
+<p>What's different with Deep Q Learning, the techinique used in this project, is that we don't have to store all those possible cases in the Q table, we only generalize the aproximation of the Q value function instead of remembering the reward of the actions. This is done by replacing the Qtable by a neural network.</p>
+<p><img src='https://cdn-images-1.medium.com/max/1600/1*w5GuxedZ9ivRYqM_MLUxOQ.png' align='center'></p>
+<p>Neural Networks are the state of the art algorithm in machine learning, they usually outperform all the other machine learning algorithms if big data and computational power are available in training. This is how we are getting features from the input images.</p>
+<p><img src='https://cdn-images-1.medium.com/max/716/1*8coZ4g_pRtfyoHmsuzMH6g.png' align='center'></p>
+<h3 id="Vanilla-Deep-Q-Learning">Vanilla Deep Q Learning<a class="anchor-link" href="#Vanilla-Deep-Q-Learning">&#182;</a></h3><p>The main variation from the algorithm from the suggested paper  "Playing atari with Deep Reinforcement Learning" is that is not used a convolutional neural network, instead that was changed for a feed forward neural network that provides the input vector of the state.</p>
+<h3 id="Hyperparameters">Hyperparameters<a class="anchor-link" href="#Hyperparameters">&#182;</a></h3><p>Trained with the following parameters based on the ones from the paper:</p>
 <ul>
 <li>BUFFER_SIZE = int(1e5)  </li>
 <li>BATCH_SIZE = 64         </li>
@@ -11797,9 +11796,26 @@ div#notebook {
 <li>LR = 5e-4               </li>
 <li>UPDATE_EVERY = 4  </li>
 </ul>
-<p><img src='drl_performance.png' align='center'></p>
-<p>The model returned an average score of 11.49 after 100 episodes, a very successful model, however it has room for improvement modifying parameters and using a convnet to extract features, and changing the architechture of the DQN</p>
-<h3 id="Instructions">Instructions<a class="anchor-link" href="#Instructions">&#182;</a></h3><p>Follow the instructions in navigation_drl.ipynb to get started with training the agent.</p>
+<ol>
+<li>Results 
+<img src='drl_performance.png' align='center'></li>
+</ol>
+<p>The model returned an average score of 11.49 after 100 episodes, a very successful model.</p>
+<ol>
+<li><p>Iprovements suggested for this project include:</p>
+</li>
+<li><p>Optimization modifyin hyperparameter</p>
+</li>
+<li>Changing the architechture to Double Deep Q Networks, Dueling Deep Q Networks or a combination of many of those (RAINBOW)</li>
+<li>Prioritized Experience Replay</li>
+<li><p>Learning from pixels instead</p>
+</li>
+<li><p>Biography
+<a href="https://www.cs.toronto.edu/~vmnih/docs/dqn.pdf">Playing Atari with Deep Reinforcement Learning</a>
+<a href="https://www.youtube.com/watch?v=A5eihauRQvo">How to use Q Learning in video games</a>
+<a href="https://medium.com/@jonathan_hui/rl-dqn-deep-q-network-e207751f7ae4">DQN Deep Q Network</a></p>
+</li>
+</ol>
 
 </div>
 </div>
