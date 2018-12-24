@@ -18,7 +18,7 @@ The task is episodic, and in order to solve the environment, your agent must get
 
 ### Vanilla Deep Q Learning
 
-<img src='https://drive.google.com/open?id=1DW_pq1QhZ3bj8SDq8J5Toh2vbCYJ_9H0' align='center'>
+<img src='drl_performance.png' align='center'>
 
 
 
