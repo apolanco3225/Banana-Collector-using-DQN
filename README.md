@@ -15,18 +15,6 @@ The state space has 37 dimensions and contains the agent's velocity, along with 
 
 The task is episodic, and in order to solve the environment, your agent must get an average score of +13 over 100 consecutive episodes.
 
-Project details
-
-Project created as 1st project on Udacity Deep Reinforcement Learning nanodegree. The goal of the agent is to gather yellow bananas while avoiding the blue ones. Here are Unity details of the environment:
-
-Unity brain name: BananaBrain
-        Number of Visual Observations (per agent): 0
-        Vector Observation space type: continuous
-        Vector Observation space size (per agent): 37
-        Number of stacked Vector Observation: 1
-        Vector Action space type: discrete
-        Vector Action space size (per agent): 4
-        Vector Action descriptions: , , , 
     
 ### Instructions
 * Set up your environment: 
